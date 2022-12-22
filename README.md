@@ -37,7 +37,7 @@ In essence a gRPC server would define a service, by specifying the methods that 
 	- **A lot of automation** - gRPC has alot of automation, with tools such as Postman, Swagger, etc.
 - **Disadvantages**:
 	- **Not as popular** - gRPC is not as popular as REST, which means that there is less documentation and less support
-	- **Not as mature** - gRPC is not as mature as REST, which means that there are less tools and less automation
+	- **Not as mature** - gRPC is not as mature as REST, which means that there are less tools
 	- **Not as flexible** - gRPC is not as flexible as REST, which means that it is harder to implement custom logic
 
 
