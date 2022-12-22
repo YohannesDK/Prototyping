@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+option csharp_namespace = "Protos.Service1";
+
+service ProductOfferService {
+	rpc GetOfferList (Empty) returns (Offers);
+	rpc GetOffer (GetOfferDetailRequest) returns (OfferDetail);
+
+	rpc CreateOffer (CreateOfferDetailRequest) returns (OfferDetail);
+	rpc CreateOfferFromMegaOffer (CreateOfferFromMegaRequest) returns (OfferDetail);
+
+	rpc UpdateOffer (UpdateOfferDetailRequest) returns (OfferDetail);
+	rpc DeleteOffer (DeleteOfferDetailRequest) returns (DeleteOfferDetailResponse);
+
+	rpc PingMessage (Empty) returns (PingReply);
+	rpc PongMessage (Empty) returns (PingReply);
+}
+
+message GetOfferDetailRequest {
+	int32 productId = 1;
+}
+
+message OfferDetail {
+	int32 id = 1;
+	string productName = 2;
+	string offerDescription = 3;
+}
+
+message ExtendedOfferDetail {
+	OfferDetail offerDetail = 1;
+	string msg = 2;
+}
+
+message MegaExtendedOfferDetail {
+	ExtendedOfferDetail megaOfferDetail = 1;
+	string msg = 2;
+}
+
+message CreateOfferDetailRequest {
+	OfferDetail offer = 1;
+}
+
+message CreateOfferFromMegaRequest {
+	MegaExtendedOfferDetail offer = 1;
+}
+
+message UpdateOfferDetailRequest {
+	OfferDetail offer = 1;
+}
+
+message DeleteOfferDetailRequest {
+	int32 productId = 1;
+}
+
+message DeleteOfferDetailResponse {
+	bool isDelete = 1;
+}
+
+message Empty{
+
+}
+
+message PingReply {
+	string msg = 1;
+}
+
+
+message Offers {
+  repeated OfferDetail items = 1;
+}
